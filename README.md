@@ -1,46 +1,26 @@
 # vue3-element-admin-template
 
-This template should help get you started developing with Vue 3 in Vite.
+vue3 + vite + pinia + vue-router + element-plus 后台管理系统模板。
 
-## Recommended IDE Setup
+## 简介
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+vue-element-admin-template 是一个后台管理系统模板，它基于 vue 和 element-plus 实现。使用的技术都是 vue 官方最新提供并推荐使用的，包括使用 vite 作为构建工具，pinia 代替 vuex 作为状态管理工具。 内置了动态路由，权限验证等基本的功能。无论您是学习还是作为模板进行二次开发都是非常适合的。
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## 运行
 
 ```sh
+# 克隆项目
+git clone https://github.com/liu-jia-yi/vue3-element-admin-template.git
+
+# 进入项目目录
+cd vue3-element-admin-template
+
+# 安装依赖
 npm install
-```
 
-### Compile and Hot-Reload for Development
+# 或者
+pnpm install
 
-```sh
+# 启动服务
 npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
