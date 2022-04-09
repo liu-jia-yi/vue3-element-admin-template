@@ -46,6 +46,11 @@ const handleLogin = () => {
       </el-form-item>
 
       <el-button type="primary" style="width: 100%;" @click="handleLogin">登录</el-button>
+
+      <div class="tooltip">
+        <div>账号：admin 密码：随便输</div>
+        <div>账号：editor 密码：随便输</div>
+      </div>
     </el-form>
   </div>
 </template>
@@ -64,6 +69,11 @@ const handleLogin = () => {
       .title {
         text-align: center;
       }
+    }
+    .tooltip {
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 1.5;
     }
   }
 }
