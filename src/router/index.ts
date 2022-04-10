@@ -18,6 +18,11 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/404',
+    component: () => import('@/views/404Page.vue'),
+    hidden: true
+  },
+  {
     path: '/',
     component: markRaw(LayoutIndex),
     redirect: '/dashboard',
@@ -72,6 +77,11 @@ export const constantRoutes = [
         meta: { title: '登录过期' }
       }
     ]
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '404',
+    hidden: true
   }
 ]
 
