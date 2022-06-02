@@ -4,15 +4,15 @@ import { ref } from 'vue'
 const props = defineProps({
   item: {
     type: Object,
-    required: true
+    required: true,
   },
   basePath: {
     type: String,
-    default: ''
-  }
+    default: '',
+  },
 })
 
-const onlyOneChild = ref<any>(null)
+const onlyOneChild = ref()
 
 // 判断是否只有一个子路由或者没有子路由
 const hasOneShowingChild = (children = [], parent: any) => {
@@ -37,7 +37,7 @@ const hasOneShowingChild = (children = [], parent: any) => {
   return false
 }
 
-const resolvePath = (routePath: any) => {
+const resolvePath = (routePath: string) => {
   if (props.basePath.endsWith('/')) {
     return props.basePath + routePath
   } else if (routePath) {
@@ -50,22 +50,18 @@ const resolvePath = (routePath: any) => {
 
 <template>
   <div v-if="!item.hidden">
-    <template
-      v-if="hasOneShowingChild(item.children, item) && !item.alwaysShow"
-    >
-      <el-menu-item :index="resolvePath(onlyOneChild.path)">{{ onlyOneChild.meta.title }}</el-menu-item>
+    <template v-if="hasOneShowingChild(item.children, item) && !item.alwaysShow">
+      <el-menu-item :index="resolvePath(onlyOneChild.path)">{{
+          onlyOneChild.meta.title
+      }}</el-menu-item>
     </template>
 
     <el-sub-menu v-else :index="item.path">
       <template #title>
         <span>{{ item.meta.title }}</span>
       </template>
-      <LayoutSidebarItem
-        v-for="child in item.children"
-        :key="child.path"
-        :item="child"
-        :base-path="resolvePath(child.path)"
-      />
+      <LayoutSidebarItem v-for="child in item.children" :key="child.path" :item="child"
+        :base-path="resolvePath(child.path)" />
     </el-sub-menu>
   </div>
 </template>
