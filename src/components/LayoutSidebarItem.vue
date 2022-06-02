@@ -51,7 +51,7 @@ const resolvePath = (routePath: any) => {
 <template>
   <div v-if="!item.hidden">
     <template
-      v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild?.children || onlyOneChild.noShowingChildren) && !item.alwaysShow"
+      v-if="hasOneShowingChild(item.children, item) && !item.alwaysShow"
     >
       <el-menu-item :index="resolvePath(onlyOneChild.path)">{{ onlyOneChild.meta.title }}</el-menu-item>
     </template>
