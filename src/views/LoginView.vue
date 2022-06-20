@@ -9,8 +9,8 @@ const router = useRouter()
 const formRef = ref()
 
 const form = reactive({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: '111'
 })
 const formRules = reactive({
   username: [{ required: true, message: '请输入用户名' }],
@@ -42,7 +42,7 @@ const handleLogin = () => {
       </el-form-item>
 
       <el-form-item prop="password">
-        <el-input type="password" v-model="form.password" :prefix-icon="Lock" show-password></el-input>
+        <el-input type="password" v-model="form.password" :prefix-icon="Lock" show-password @keyup.enter="handleLogin"></el-input>
       </el-form-item>
 
       <el-button type="primary" style="width: 100%;" @click="handleLogin">登录</el-button>
