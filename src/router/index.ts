@@ -2,13 +2,11 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import LayoutIndex from '@/components/LayoutIndex.vue'
 import { useUserStore } from '@/stores/user'
 import { usePermissionStore } from '@/stores/permission'
-import { markRaw } from 'vue'
 
 /**
  * 静态路由，与权限无关，所有用户都可以访问
  * hidden: true，不显示在菜单中
  * alwaysShow: true，默认当子路由只有一个时，只显示子菜单，当 alwayShow 设为 true时，永远显示该菜单
- * LayoutIndex 不是按需引入的，加上 markRaw 可以解决 vue 报性能警告
  * meta.breadcrumb = false 表示该菜单的标题不显示在面包屑中
  */
 export const constantRoutes = [
@@ -24,7 +22,7 @@ export const constantRoutes = [
   },
   {
     path: '/',
-    component: markRaw(LayoutIndex),
+    component: LayoutIndex,
     redirect: '/dashboard',
     children: [
       {
@@ -36,7 +34,7 @@ export const constantRoutes = [
   },
   {
     path: '/nest',
-    component: markRaw(LayoutIndex),
+    component: LayoutIndex,
     meta: { title: '路由嵌套' },
     children: [
       {
@@ -69,7 +67,7 @@ export const constantRoutes = [
   },
   {
     path: '/token',
-    component: markRaw(LayoutIndex),
+    component: LayoutIndex,
     children: [
       {
         path: '',
@@ -91,7 +89,7 @@ export const constantRoutes = [
 export const asyncRoutes = [
   {
     path: '/permission',
-    component: markRaw(LayoutIndex),
+    component: LayoutIndex,
     redirect: '/permission/page',
     alwaysShow: true,
     meta: { title: '权限测试', roles: ['admin', 'editor'] },
