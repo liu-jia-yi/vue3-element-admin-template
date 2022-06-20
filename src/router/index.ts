@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import LayoutIndex from '@/components/LayoutIndex.vue'
 import { useUserStore } from '@/stores/user'
 import { usePermissionStore } from '@/stores/permission'
+import { markRaw } from 'vue'
 
 /**
  * 静态路由，与权限无关，所有用户都可以访问
@@ -89,7 +90,7 @@ export const constantRoutes = [
 export const asyncRoutes = [
   {
     path: '/permission',
-    component: LayoutIndex,
+    component: markRaw(LayoutIndex),
     redirect: '/permission/page',
     alwaysShow: true,
     meta: { title: '权限测试', roles: ['admin', 'editor'] },
