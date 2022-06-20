@@ -51,13 +51,21 @@ const resolvePath = (routePath: string) => {
 <template>
   <div v-if="!item.hidden">
     <template v-if="hasOneShowingChild(item.children, item) && !item.alwaysShow">
-      <el-menu-item :index="resolvePath(onlyOneChild.path)">{{
-          onlyOneChild.meta.title
-      }}</el-menu-item>
+      <el-menu-item :index="resolvePath(onlyOneChild.path)">
+        <el-icon v-if="onlyOneChild.meta.icon">
+          <component :is="onlyOneChild.meta.icon" />
+        </el-icon>
+        <span>{{
+            onlyOneChild.meta.title
+        }}</span>
+      </el-menu-item>
     </template>
 
     <el-sub-menu v-else :index="item.path">
       <template #title>
+        <el-icon v-if="item.meta.icon">
+          <component :is="item.meta.icon" />
+        </el-icon>
         <span>{{ item.meta.title }}</span>
       </template>
       <LayoutSidebarItem v-for="child in item.children" :key="child.path" :item="child"

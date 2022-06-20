@@ -29,14 +29,14 @@ export const constantRoutes = [
       {
         path: 'dashboard',
         component: () => import('@/views/DashboardView.vue'),
-        meta: { title: '首页' }
+        meta: { title: '首页', icon: 'HomeFilled' }
       }
     ]
   },
   {
     path: '/nest',
     component: LayoutIndex,
-    meta: { title: '路由嵌套' },
+    meta: { title: '路由嵌套', icon: 'List' },
     children: [
       {
         path: 'nest1',
@@ -73,7 +73,7 @@ export const constantRoutes = [
       {
         path: '',
         component: () => import('@/views/TokenExpired.vue'),
-        meta: { title: '登录过期' }
+        meta: { title: '登录过期', icon: 'Clock' }
       }
     ]
   },
@@ -93,7 +93,7 @@ export const asyncRoutes = [
     component: markRaw(LayoutIndex),
     redirect: '/permission/page',
     alwaysShow: true,
-    meta: { title: '权限测试', roles: ['admin', 'editor'] },
+    meta: { title: '权限测试', icon: 'Lock', roles: ['admin', 'editor'] },
     children: [
       {
         path: 'page',
