@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useUserStore } from '@/stores/user';
-import { ArrowDown } from '@element-plus/icons-vue';
 import RouterBreadcrumb from './RouterBreadcrumb.vue';
 
 const userStore = useUserStore()
